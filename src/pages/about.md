@@ -3,35 +3,25 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+## 關於我
 
-![Astro Paper](public/astropaper-og.jpg)
+我是 Grant，住在台灣的投資人與信用卡玩家。
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+平常透過 Charles Schwab 嘉信帳戶操作美股，投資風格偏向價值型和轉機股。因為長期接觸美國金融體系，從 2024 年開始申辦美國信用卡，14 個月內拿下 5 張美卡。
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+## 關於這個部落格
 
-## Features
+這裡記錄我申辦美國信用卡的實戰經驗，包括：
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+- ITIN 申請流程
+- 各家銀行的申卡紀錄與踩坑經驗
+- 開卡禮策略與時間安排
+- Chase、Amex 的風控差異
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+所有內容皆為親身經歷，不是業配，不是理論。
 
-and so much more.
+## 聯絡方式
 
-## Show your support
-
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+- PTT：threeSecGun（creditcard 板、Stock 板）
+- Email：grantkuo0306@gmail.com
+- GitHub：[GrantKUOY](https://github.com/GrantKUOY)
