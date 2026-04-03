@@ -1,0 +1,23 @@
+export const SITE = {
+  website: "https://credit-card-blog.vercel.app/",
+  author: "Grant Kuo",
+  profile: "",
+  desc: "台灣人的美國信用卡策略指南 - 從零開始建立美國信用紀錄",
+  title: "信用卡攻略",
+  ogImage: "astropaper-og.jpg",
+  lightAndDarkMode: true,
+  postPerIndex: 5,
+  postPerPage: 10,
+  scheduledPostMargin: 15 * 60 * 1000,
+  showArchives: true,
+  showBackButton: true,
+  editPost: {
+    enabled: false,
+    text: "",
+    url: "",
+  },
+  dynamicOgImage: true,
+  dir: "ltr",
+  lang: "zh-TW",
+  timezone: "Asia/Taipei",
+} as const;
