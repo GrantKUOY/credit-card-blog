@@ -16,20 +16,7 @@ interface Social {
   icon: (_props: Props) => Element;
 }
 
-export const SOCIALS: Social[] = [
-  {
-    name: "GitHub",
-    href: "https://github.com/GrantKUOY",
-    linkTitle: `${SITE.title} on GitHub`,
-    icon: IconGitHub,
-  },
-  {
-    name: "Mail",
-    href: "mailto:grantkuo0306@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
-    icon: IconMail,
-  },
-] as const;
+export const SOCIALS: Social[] = [] as const;
 
 export const SHARE_LINKS: Social[] = [
   {

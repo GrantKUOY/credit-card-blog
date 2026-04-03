@@ -7,7 +7,9 @@ title: "About"
 
 我是 Grant，住在台灣的投資人與信用卡玩家。
 
-平常透過 Charles Schwab 嘉信帳戶操作美股，投資風格偏向價值型和轉機股。因為長期接觸美國金融體系，從 2024 年開始申辦美國信用卡，14 個月內拿下 5 張美卡。
+從投資美股開始接觸美國金融市場，陸續開立國內各券商複委託及 Firstrade、Charles Schwab 嘉信、Interactive Brokers 盈透等海外券商帳戶。投資風格偏向價值型與轉機股，台股美股都有涉獵。
+
+因為長年與美國金融體系打交道，從 2024 年開始申辦美國信用卡，14 個月內拿下 5 張美卡。
 
 ## 關於這個部落格
 
@@ -19,9 +21,3 @@ title: "About"
 - Chase、Amex 的風控差異
 
 所有內容皆為親身經歷，不是業配，不是理論。
-
-## 聯絡方式
-
-- PTT：threeSecGun（creditcard 板、Stock 板）
-- Email：grantkuo0306@gmail.com
-- GitHub：[GrantKUOY](https://github.com/GrantKUOY)
