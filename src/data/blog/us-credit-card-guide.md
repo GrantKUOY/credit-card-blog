@@ -9,9 +9,9 @@ draft: false
 
 ## 前言
 
-我是一個住在台灣、沒有美國身份的投資人。平常透過 Charles Schwab 嘉信帳戶操作美股，投資風格偏向價值型和轉機股——從勞斯萊斯（RYCEY）38,000 股的長期持有，到雅詩蘭黛（EL）的深度價值佈局，台股美股都有涉獵。
+我是一個住在台灣、沒有美國身份的投資人。從投資美股開始接觸美國金融市場，陸續開立了國內各券商複委託，以及海外的 Firstrade、Charles Schwab 嘉信、Interactive Brokers 盈透等美股券商帳戶。投資風格偏向價值型與轉機股——像勞斯萊斯（RYCEY）這類深度價值股的長期佈局，台股美股都有涉獵。
 
-因為長期接觸美國金融體系，我很早就意識到**建立美國信用紀錄**的價值。2024 年 3 月，我辦下了人生第一張美國信用卡——Capital One QuicksilverOne，額度只有 500 美金。14 個月後，我手上已經有 5 張美卡，包括 Chase Sapphire Preferred 和 Amex Marriott Bonvoy Brilliant。
+因為長年與美國金融體系打交道，我很早就意識到**建立美國信用紀錄**的價值。2024 年 3 月，我辦下了人生第一張美國信用卡——Capital One QuicksilverOne，額度只有 500 美金。14 個月後，我手上已經有 5 張美卡，包括 Chase Sapphire Preferred 和 Amex Marriott Bonvoy Brilliant。
 
 這篇文章記錄我的完整歷程、踩過的坑、以及回頭看會給新手的建議。不是理論教學，是**實戰紀錄**。
 
