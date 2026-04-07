@@ -1,7 +1,7 @@
 ---
 title: "Capital One QuicksilverOne：我的第一張美卡，額度只有 $500"
 description: "這張卡回饋普通、有年費、額度地板。但它是我整套美卡系統的起點。沒有這張卡，後面的 Amex、Chase 都不會發生。"
-pubDatetime: 2026-04-08T00:00:00Z
+pubDatetime: 2026-04-07T00:00:00Z
 tags: ["美國信用卡", "Capital One", "QuicksilverOne", "信用建立", "新手指南"]
 featured: false
 draft: false
