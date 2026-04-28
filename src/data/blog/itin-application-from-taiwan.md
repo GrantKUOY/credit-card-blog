@@ -1,5 +1,5 @@
 ---
-title: "為了退稅不到 10 美金，我花了一筆學費申請 ITIN"
+title: "美卡入場券：為了退稅不到 10 美金，我花了一筆學費申請 ITIN"
 description: "台灣人申請 ITIN 的完整流程紀錄。從 W-7、1040-NR、1042-S、護照認證副本，到實際寄件時間、費用與踩坑心得。"
 pubDatetime: 2026-04-28T00:00:00Z
 slug: itin-application-from-taiwan
