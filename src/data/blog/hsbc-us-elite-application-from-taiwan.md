@@ -1,5 +1,5 @@
 ---
-title: "台灣電話、台灣地址、沒有 SSN，我怎麼申到年費 $495 的美國高端卡"
+title: "沒有 SSN、沒有美國地址，我怎麼申到年費 $495 的美國高端信用卡"
 description: "透過台灣 HSBC Premier 資格切入美國 Premier，再申請 Elite 信用卡的完整路線。補件問答、POA 踩坑、申請時間線全紀錄。"
 pubDatetime: 2026-05-09
 slug: hsbc-us-elite-application-from-taiwan
@@ -12,7 +12,7 @@ tags:
   - 無SSN
 ---
 
-# 台灣電話、台灣地址、沒有 SSN，我怎麼申到年費 $495 的美國高端卡
+# 沒有 SSN、沒有美國地址，我怎麼申到年費 $495 的美國高端信用卡
 
 有讀者留言問我：
 
