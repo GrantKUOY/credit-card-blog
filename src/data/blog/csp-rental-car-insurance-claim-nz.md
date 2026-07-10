@@ -49,7 +49,7 @@ _錢真的進帳戶了：Virginia Surety（Chase 租車險承保公司）匯入 
 
 ![這趟在紐西蘭租的白色 Hyundai Santa Fe](../../assets/images/csp-claim-car-front.jpg)
 
-_主角登場：這趟在紐西蘭租的 Hyundai Santa Fe，人稱「山土匪」——感謝人美心善的女車神好友推薦這台，又寬敞又好開，長途自駕超舒服。全程刷 CSP、取車時拒保 CDW，就是後面能理賠的關鍵。（車牌已遮）_
+_主角登場：這趟在紐西蘭租的 Hyundai Santa Fe，人稱「山土匪」——感謝美女車神好友推薦這台，又寬敞又好開，長途自駕超舒服。全程刷 CSP、取車時拒保 CDW，就是後面能理賠的關鍵。（車牌已遮）_
 
 ---
 
