@@ -15,7 +15,7 @@ tags:
 
 # 信用卡附的租車險真的賠嗎？Chase CSP 紐西蘭租車實戰：被圈走 NZD 1,000，全額拿回
 
-先講結果：在紐西蘭租車被刮了一道，還車時被租車公司從信用卡圈走 NZD 1,000。我靠 Chase Sapphire Preferred 附帶的免費租車險，把錢全額拿了回來——**USD 605.30，ACH 直接入帳**。
+在紐西蘭自駕，租車被刮了一道，還車時被租車公司從信用卡圈走 NZD 1,000。這篇把我怎麼用 Chase Sapphire Preferred 附帶的免費租車險、從開 claim 到全額拿回 **USD 605.30**（ACH 直接入帳）的整個過程記下來——一份紐西蘭租車保險申請的實戰全紀錄。
 
 ![Chase 租車險理賠款 USD 605.30 ACH 入帳美國銀行帳戶](../../assets/images/csp-claim-deposit.jpg)
 
