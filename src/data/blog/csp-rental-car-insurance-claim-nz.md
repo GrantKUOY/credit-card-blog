@@ -1,5 +1,5 @@
 ---
-title: "信用卡附的租車險真的賠嗎？CSP 紐西蘭實戰：被圈走 NZD 1,000，全額拿回"
+title: "信用卡附的租車險真的賠嗎？Chase CSP 紐西蘭租車實戰：被圈走 NZD 1,000，全額拿回"
 description: "拒保 CDW、出事、被租車公司圈走 NZD 1,000——我用 Chase Sapphire Preferred 附帶的免費租車險全額拿回 USD 605.30。開 claim、三份文件、對付拖延的租車公司、領款流程，一次寫完。"
 pubDatetime: 2026-07-10
 slug: csp-rental-car-insurance-claim-nz
@@ -13,7 +13,7 @@ tags:
   - 紐西蘭自駕
 ---
 
-# 信用卡附的租車險真的賠嗎？CSP 紐西蘭實戰：被圈走 NZD 1,000，全額拿回
+# 信用卡附的租車險真的賠嗎？Chase CSP 紐西蘭租車實戰：被圈走 NZD 1,000，全額拿回
 
 先講結果：在紐西蘭租車被刮了一道，還車時被租車公司從信用卡圈走 NZD 1,000。我靠 Chase Sapphire Preferred 附帶的免費租車險，把錢全額拿了回來——**USD 605.30，ACH 直接入帳**。
 
