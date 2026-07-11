@@ -36,7 +36,7 @@ test("public comments API validates, rate limits, hides email, and sends notific
   assert.match(api, /MAX_MESSAGE_LENGTH = 1000/);
   assert.match(api, /MAX_NAME_LENGTH = 50/);
   assert.match(api, /RATE_LIMIT_WINDOW_MS = 30_000/);
-  assert.match(api, /website/);
+  assert.match(api, /hp_check/);
   assert.match(api, /countLinks/);
   assert.match(api, /pending/);
   assert.match(api, /published/);
@@ -55,7 +55,7 @@ test("article layout includes the public comments island without exposing email"
   assert.match(layout, /還沒有留言，來當第一個吧/);
   assert.match(layout, /請勿留下卡號、ITIN、密碼等敏感資訊，留言會公開顯示/);
   assert.match(layout, /留言含較多連結，將由站方確認後顯示/);
-  assert.match(layout, /name="website"/);
+  assert.match(layout, /name="hp_check"/);
   assert.doesNotMatch(layout, /comment\.email/);
 });
 

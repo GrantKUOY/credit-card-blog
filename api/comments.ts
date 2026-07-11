@@ -18,7 +18,7 @@ type CommentBody = {
   name?: unknown;
   email?: unknown;
   message?: unknown;
-  website?: unknown;
+  hp_check?: unknown;
 };
 
 type ApiRequest = AsyncIterable<Uint8Array> & {
@@ -179,7 +179,7 @@ async function createComment(req: ApiRequest, res: ApiResponse) {
     return res.status(400).json({ error: "INVALID_JSON" });
   }
 
-  if (asTrimmedString(body.website)) {
+  if (asTrimmedString(body.hp_check)) {
     return res.status(200).json({ ok: true });
   }
 

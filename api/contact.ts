@@ -10,7 +10,7 @@ type ContactBody = {
   email?: unknown;
   category?: unknown;
   message?: unknown;
-  website?: unknown;
+  hp_check?: unknown;
 };
 
 type ContactRequest = AsyncIterable<Uint8Array> & {
@@ -107,7 +107,7 @@ export default async function handler(req: ContactRequest, res: ContactResponse)
     return res.status(400).json({ error: "INVALID_JSON" });
   }
 
-  if (asTrimmedString(body.website)) {
+  if (asTrimmedString(body.hp_check)) {
     return res.status(200).json({ ok: true });
   }
 
