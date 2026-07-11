@@ -1,5 +1,5 @@
 import { neon } from "@neondatabase/serverless";
-import { ensureCommentsTable } from "./_comments-db";
+import { ensureCommentsTable } from "./_comments-db.js";
 
 export const config = {
   runtime: "nodejs",
