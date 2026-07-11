@@ -81,6 +81,8 @@ const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+
+const postSlug = post.id;
 ---
 
 <Layout {...layoutProps}>
@@ -126,6 +128,85 @@ const nextPost =
     <BackToTopButton />
 
     <ShareLinks />
+
+    <section
+      id="public-comments"
+      class="mt-10 border-t border-border pt-8"
+      data-post-slug={postSlug}
+    >
+      <h2 class="text-xl font-semibold">留言</h2>
+      <p class="mt-2 text-sm text-foreground/75">
+        請勿留下卡號、ITIN、密碼等敏感資訊，留言會公開顯示
+      </p>
+
+      <div id="public-comments-status" class="mt-4 text-sm" role="status">
+        載入留言中...
+      </div>
+      <div id="public-comments-list" class="mt-6 grid gap-4"></div>
+
+      <form id="public-comments-form" class="mt-8 grid gap-4">
+        <div class="grid gap-2">
+          <label for="comment-name" class="text-sm font-medium">
+            暱稱（必填）
+          </label>
+          <input
+            id="comment-name"
+            name="name"
+            type="text"
+            maxlength="50"
+            required
+            class="focus-outline rounded border border-border bg-background px-3 py-2"
+          />
+        </div>
+
+        <div class="grid gap-2">
+          <label for="comment-email" class="text-sm font-medium">
+            Email（選填，不公開）
+          </label>
+          <input
+            id="comment-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            class="focus-outline rounded border border-border bg-background px-3 py-2"
+          />
+        </div>
+
+        <div class="grid gap-2">
+          <label for="comment-message" class="text-sm font-medium">
+            留言內容（必填）
+          </label>
+          <textarea
+            id="comment-message"
+            name="message"
+            rows="5"
+            maxlength="1000"
+            required
+            class="focus-outline rounded border border-border bg-background px-3 py-2"
+          ></textarea>
+        </div>
+
+        <div class="absolute -left-[9999px]" aria-hidden="true">
+          <label for="comment-website">Website</label>
+          <input
+            id="comment-website"
+            name="website"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="focus-outline w-fit rounded bg-accent px-4 py-2 font-medium text-background hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          送出留言
+        </button>
+
+        <p id="public-comments-form-status" class="text-sm" role="status"></p>
+      </form>
+    </section>
 
     {
       dcardUrl && (
@@ -295,4 +376,154 @@ const nextPost =
   document.addEventListener("astro:after-swap", () =>
     window.scrollTo({ left: 0, top: 0, behavior: "instant" })
   );
+</script>
+
+<script>
+  type PublicComment = {
+    name: string;
+    message: string;
+    created_at: string;
+  };
+
+  const commentsSection = document.querySelector("#public-comments");
+  const commentsList = document.querySelector("#public-comments-list");
+  const commentsStatus = document.querySelector("#public-comments-status");
+  const commentsForm = document.querySelector("#public-comments-form");
+  const commentsFormStatus = document.querySelector(
+    "#public-comments-form-status"
+  );
+  const commentsSubmitButton = commentsForm?.querySelector(
+    "button[type='submit']"
+  );
+  const postSlug = commentsSection?.getAttribute("data-post-slug") || "";
+
+  function setCommentsStatus(message: string) {
+    if (commentsStatus) commentsStatus.textContent = message;
+  }
+
+  function setCommentsFormStatus(message: string) {
+    if (commentsFormStatus) commentsFormStatus.textContent = message;
+  }
+
+  function getRelativeTime(value: string) {
+    const createdAt = new Date(value).getTime();
+    const diffSeconds = Math.max(
+      1,
+      Math.floor((Date.now() - createdAt) / 1000)
+    );
+    const units: Array<[string, number]> = [
+      ["年", 31536000],
+      ["個月", 2592000],
+      ["天", 86400],
+      ["小時", 3600],
+      ["分鐘", 60],
+    ];
+
+    for (const [label, seconds] of units) {
+      const count = Math.floor(diffSeconds / seconds);
+      if (count >= 1) return `${count} ${label}前`;
+    }
+
+    return "剛剛";
+  }
+
+  function renderComment(comment: PublicComment) {
+    const article = document.createElement("article");
+    article.className = "rounded border border-border bg-muted/20 p-4";
+
+    const meta = document.createElement("div");
+    meta.className = "text-sm text-foreground/70";
+    meta.textContent = `${comment.name} · ${getRelativeTime(comment.created_at)}`;
+
+    const message = document.createElement("p");
+    message.className = "mt-3 whitespace-pre-wrap";
+    message.textContent = comment.message;
+
+    article.append(meta, message);
+    return article;
+  }
+
+  function renderComments(comments: PublicComment[]) {
+    if (!commentsList) return;
+
+    commentsList.textContent = "";
+    if (comments.length === 0) {
+      setCommentsStatus("還沒有留言，來當第一個吧");
+      return;
+    }
+
+    setCommentsStatus("");
+    for (const comment of comments) {
+      commentsList.append(renderComment(comment));
+    }
+  }
+
+  async function loadPublicComments() {
+    if (!postSlug) return;
+
+    try {
+      const response = await fetch(
+        `/api/comments?slug=${encodeURIComponent(postSlug)}`
+      );
+      if (!response.ok) throw new Error("load failed");
+
+      const data = (await response.json()) as { comments?: PublicComment[] };
+      renderComments(data.comments || []);
+    } catch {
+      setCommentsStatus("目前無法載入留言。");
+    }
+  }
+
+  commentsForm?.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    if (
+      !(commentsForm instanceof HTMLFormElement) ||
+      !commentsSubmitButton ||
+      !postSlug
+    ) {
+      return;
+    }
+
+    const formData = new FormData(commentsForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    setCommentsFormStatus("");
+    commentsSubmitButton.setAttribute("disabled", "true");
+
+    try {
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          post_slug: postSlug,
+          ...payload,
+        }),
+      });
+
+      const data = (await response.json()) as {
+        status?: "published" | "pending";
+        comment?: PublicComment;
+      };
+      if (!response.ok) throw new Error("submit failed");
+
+      commentsForm.reset();
+      if (data.status === "pending") {
+        setCommentsFormStatus("留言含較多連結，將由站方確認後顯示");
+        return;
+      }
+
+      if (data.comment && commentsList) {
+        commentsList.append(renderComment(data.comment));
+        setCommentsStatus("");
+      }
+      setCommentsFormStatus("留言已送出。");
+    } catch {
+      setCommentsFormStatus("目前無法送出留言，請稍後再試。");
+    } finally {
+      commentsSubmitButton.removeAttribute("disabled");
+    }
+  });
+
+  loadPublicComments();
 </script>

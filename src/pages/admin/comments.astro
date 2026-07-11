@@ -1,0 +1,198 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+---
+
+<Layout
+  title={`留言管理 | ${SITE.title}`}
+  description="Grant 信用卡部落格留言管理頁"
+>
+  <Header />
+  <main id="main-content" class="app-layout">
+    <section class="mb-28 max-w-app">
+      <h1 class="text-2xl tracking-wider sm:text-3xl">留言管理</h1>
+
+      <form id="admin-token-form" class="mt-8 grid gap-3">
+        <label for="admin-token" class="text-sm font-medium">管理 Token</label>
+        <input
+          id="admin-token"
+          name="admin-token"
+          type="password"
+          autocomplete="off"
+          class="focus-outline rounded border border-border bg-background px-3 py-2"
+        />
+        <button
+          type="submit"
+          class="focus-outline w-fit rounded bg-accent px-4 py-2 font-medium text-background"
+        >
+          載入留言
+        </button>
+      </form>
+
+      <p id="admin-comments-status" class="mt-4 text-sm" role="status"></p>
+      <div id="admin-comments-list" class="mt-8 grid gap-4"></div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  type AdminComment = {
+    id: number;
+    post_slug: string;
+    name: string;
+    email?: string | null;
+    message: string;
+    status: "published" | "pending" | "rejected";
+    created_at: string;
+  };
+
+  const tokenForm = document.querySelector("#admin-token-form");
+  const tokenInput = document.querySelector("#admin-token");
+  const statusNode = document.querySelector("#admin-comments-status");
+  const listNode = document.querySelector("#admin-comments-list");
+  const tokenStorageKey = "credit-card-blog-admin-token";
+
+  function getToken() {
+    return localStorage.getItem(tokenStorageKey) || "";
+  }
+
+  function setStatus(message: string) {
+    if (statusNode) statusNode.textContent = message;
+  }
+
+  function formatDate(value: string) {
+    return new Intl.DateTimeFormat("zh-TW", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }).format(new Date(value));
+  }
+
+  async function adminFetch(path: string, options: RequestInit = {}) {
+    const response = await fetch(path, {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`,
+        ...(options.headers as Record<string, string> | undefined),
+      },
+    });
+
+    if (response.status === 401) {
+      localStorage.removeItem(tokenStorageKey);
+      throw new Error("Token 錯誤，請重新輸入。");
+    }
+
+    if (!response.ok) throw new Error("留言管理請求失敗。");
+
+    return response.json();
+  }
+
+  function renderComments(comments: AdminComment[]) {
+    if (!listNode) return;
+
+    listNode.textContent = "";
+    if (comments.length === 0) {
+      setStatus("目前沒有留言。");
+      return;
+    }
+
+    setStatus(`共 ${comments.length} 則留言。`);
+
+    for (const comment of comments) {
+      const article = document.createElement("article");
+      article.className = "rounded border border-border bg-muted/20 p-4";
+
+      const meta = document.createElement("div");
+      meta.className = "text-sm text-foreground/75";
+      meta.textContent = `${comment.post_slug} · ${comment.status} · ${formatDate(comment.created_at)}`;
+
+      const author = document.createElement("h2");
+      author.className = "mt-2 text-base font-semibold";
+      author.textContent = `${comment.name}${comment.email ? ` <${comment.email}>` : ""}`;
+
+      const message = document.createElement("p");
+      message.className = "mt-3 whitespace-pre-wrap";
+      message.textContent = comment.message;
+
+      const actions = document.createElement("div");
+      actions.className = "mt-4 flex flex-wrap gap-2";
+
+      if (comment.status === "pending") {
+        actions.append(
+          createActionButton("核准", () =>
+            updateComment(comment.id, "published")
+          ),
+          createActionButton("拒絕", () =>
+            updateComment(comment.id, "rejected")
+          )
+        );
+      }
+
+      if (comment.status === "published") {
+        actions.append(
+          createActionButton("刪除", () => deleteComment(comment.id))
+        );
+      }
+
+      article.append(meta, author, message, actions);
+      listNode.append(article);
+    }
+  }
+
+  function createActionButton(label: string, onClick: () => void) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className =
+      "focus-outline rounded border border-border px-3 py-1 text-sm hover:text-accent";
+    button.textContent = label;
+    button.addEventListener("click", onClick);
+    return button;
+  }
+
+  async function loadComments() {
+    const data = (await adminFetch("/api/comments-admin")) as {
+      comments?: AdminComment[];
+    };
+    renderComments(data.comments || []);
+  }
+
+  async function updateComment(id: number, status: "published" | "rejected") {
+    await adminFetch(`/api/comments-admin?id=${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ status }),
+    });
+    await loadComments();
+  }
+
+  async function deleteComment(id: number) {
+    await adminFetch(`/api/comments-admin?id=${id}`, {
+      method: "DELETE",
+    });
+    await loadComments();
+  }
+
+  tokenForm?.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (!(tokenInput instanceof HTMLInputElement)) return;
+
+    localStorage.setItem(tokenStorageKey, tokenInput.value.trim());
+    try {
+      await loadComments();
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : "無法載入留言。");
+    }
+  });
+
+  if (tokenInput instanceof HTMLInputElement) {
+    tokenInput.value = getToken();
+  }
+
+  if (getToken()) {
+    loadComments().catch(error => {
+      setStatus(error instanceof Error ? error.message : "無法載入留言。");
+    });
+  }
+</script>
