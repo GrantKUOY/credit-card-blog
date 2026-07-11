@@ -196,15 +196,13 @@ async function createComment(req: ApiRequest, res: ApiResponse) {
     return res.status(400).json({ error: "COMMENT_TOO_LONG" });
   }
 
-  const escapedName = escapeHtml(name);
-  const escapedMessage = escapeHtml(message);
   const status: CommentStatus =
     countLinks(message) >= 2 ? "pending" : "published";
 
   await ensureCommentsTable();
   await sql`
     INSERT INTO comments (post_slug, name, email, message, status)
-    VALUES (${postSlug}, ${escapedName}, ${email || null}, ${escapedMessage}, ${status})
+    VALUES (${postSlug}, ${name}, ${email || null}, ${message}, ${status})
   `;
 
   await sendNotification({
@@ -221,8 +219,8 @@ async function createComment(req: ApiRequest, res: ApiResponse) {
     comment:
       status === "published"
         ? {
-            name: escapedName,
-            message: escapedMessage,
+            name,
+            message,
             created_at: new Date().toISOString(),
           }
         : undefined,
