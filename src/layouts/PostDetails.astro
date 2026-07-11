@@ -28,6 +28,7 @@ const {
   description,
   ogImage: initOgImage,
   canonicalURL,
+  dcardUrl,
   pubDatetime,
   modDatetime,
   timezone,
@@ -125,6 +126,18 @@ const nextPost =
     <BackToTopButton />
 
     <ShareLinks />
+
+    {
+      dcardUrl && (
+        <aside class="mt-6 rounded border border-border bg-muted/30 p-4 text-sm">
+          有類似經驗或問題？歡迎到{" "}
+          <a href={dcardUrl} target="_blank" rel="noopener noreferrer">
+            Dcard 討論串
+          </a>{" "}
+          留言，我會盡量回覆。
+        </aside>
+      )
+    }
 
     <hr class="my-6 border-dashed" />
 

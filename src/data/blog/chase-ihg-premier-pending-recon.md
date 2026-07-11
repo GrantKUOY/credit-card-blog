@@ -13,8 +13,6 @@ tags:
   - 申請實戰
 ---
 
-# 有 ITIN 申 Chase 卡在 Pending？CP565 補件＋Recon 電話，IHG Premier 核卡全紀錄
-
 第三次申 Chase 信用卡，收到 Pending 通知的那一刻，我沒有特別緊張。
 
 這不是麻木，是經驗。

@@ -23,10 +23,16 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
     ]}
   >
     <Socials />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; {currentYear}</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+    <div
+      class="my-2 flex max-w-3xl flex-col gap-2 text-center text-sm sm:text-start"
+    >
+      <p>
+        部分文章可能包含信用卡推薦連結。透過推薦連結申請，作者可能獲得點數或其他獎勵，但不會增加讀者的申請成本。推薦不代表保證核卡，所有條款與優惠以發卡銀行公告為準。
+      </p>
+      <p>
+        本站內容為個人經驗與資訊分享，不構成財務、稅務或法律建議。信用卡優惠與福利可能隨時變更，申請前請以發卡機構最新條款為準。
+      </p>
+      <p>Copyright &#169; {currentYear} | All rights reserved.</p>
     </div>
   </div>
 </footer>
