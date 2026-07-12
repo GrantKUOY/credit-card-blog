@@ -1,7 +1,7 @@
 ---
 title: "一張年費 $495 的美卡，變成全家人的 Priority Pass 通行證：HSBC US Elite 實測"
 description: "HSBC Elite World Mastercard 年費 $495：官方條款寫明主卡與免費副卡都是 eligible cardholder，各自能用 Priority Pass、各帶 2 位同伴——這才是這張卡的真正核心，不只是 $400 旅遊 credit。年費出帳後也別急著繳，值得先問問有沒有 retention offer。"
-pubDatetime: 2026-07-14
+pubDatetime: 2026-07-12
 slug: hsbc-us-elite-card-review
 featured: false
 tags:
