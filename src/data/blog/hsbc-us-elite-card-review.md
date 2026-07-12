@@ -21,6 +21,10 @@ HSBC Elite World Mastercard，年費 $495，乍看不便宜。但我真正留下
 
 上一篇寫過[怎麼從台灣、不用 SSN 申請到這張卡](/posts/hsbc-us-elite-application-from-taiwan)，這篇把卡片本身拆開來算。
 
+![HSBC Elite World Elite Mastercard 卡面正面](../../assets/images/hsbc-elite-card-front.jpg)
+
+_本人這張。卡面沒有印卡號／效期／姓名——HSBC 這系列走無號設計，卡號只在 App 裡查得到。_
+
 ---
 
 ## 卡片基本資料
