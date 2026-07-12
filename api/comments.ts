@@ -1,5 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import { ensureCommentsTable } from "./_comments-db.js";
+import { signModerationAction } from "./_comments-moderation.js";
 
 export const config = {
   runtime: "nodejs",
@@ -90,12 +91,14 @@ function getRequestUrl(req: ApiRequest) {
 }
 
 async function sendNotification({
+  id,
   postSlug,
   name,
   email,
   message,
   status,
 }: {
+  id: number;
   postSlug: string;
   name: string;
   email: string;
@@ -109,6 +112,27 @@ async function sendNotification({
 
   const statusLabel = status === "pending" ? "pending 待審" : "published 已公開";
   const adminUrl = "https://credit-card-blog.vercel.app/admin/comments";
+
+  let actionLinksText = "";
+  let actionLinksHtml = "";
+
+  if (status === "pending") {
+    const approveToken = signModerationAction(id, "approve");
+    const rejectToken = signModerationAction(id, "reject");
+    if (approveToken && rejectToken) {
+      const base = "https://credit-card-blog.vercel.app/api/comments-moderate";
+      const approveUrl = `${base}?id=${id}&action=approve&token=${approveToken}`;
+      const rejectUrl = `${base}?id=${id}&action=reject&token=${rejectToken}`;
+      actionLinksText = `\n核准：${approveUrl}\n拒絕：${rejectUrl}\n`;
+      actionLinksHtml = `
+        <p>
+          <a href="${approveUrl}" style="display:inline-block;padding:8px 16px;background:#16a34a;color:#fff;text-decoration:none;border-radius:4px;margin-right:8px;">✅ 核准</a>
+          <a href="${rejectUrl}" style="display:inline-block;padding:8px 16px;background:#dc2626;color:#fff;text-decoration:none;border-radius:4px;">❌ 拒絕</a>
+        </p>
+      `;
+    }
+  }
+
   const text = [
     "Grant 信用卡部落格收到新留言",
     "",
@@ -119,7 +143,7 @@ async function sendNotification({
     "",
     "留言內容：",
     message,
-    "",
+    actionLinksText,
     `管理留言：${adminUrl}`,
   ].join("\n");
 
@@ -131,6 +155,7 @@ async function sendNotification({
     <p><strong>狀態：</strong>${escapeHtml(statusLabel)}</p>
     <hr />
     <p>${escapeHtml(message).replaceAll("\n", "<br />")}</p>
+    ${actionLinksHtml}
     <p><a href="${adminUrl}">前往 /admin/comments 管理留言</a></p>
   `;
 
@@ -200,12 +225,15 @@ async function createComment(req: ApiRequest, res: ApiResponse) {
     countLinks(message) >= 2 ? "pending" : "published";
 
   await ensureCommentsTable();
-  await sql`
+  const inserted = await sql`
     INSERT INTO comments (post_slug, name, email, message, status)
     VALUES (${postSlug}, ${name}, ${email || null}, ${message}, ${status})
+    RETURNING id
   `;
+  const id = inserted[0]?.id as number;
 
   await sendNotification({
+    id,
     postSlug,
     name,
     email,
