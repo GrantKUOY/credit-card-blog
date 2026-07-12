@@ -13,9 +13,11 @@ tags:
   - Priority Pass
 ---
 
-HSBC Elite World Mastercard，年費 $495，乍看不便宜。但我真正留下它的理由，不是單純的機票／飯店／租車 5x，也不只是每年最高 $400 的 HSBC Travel Credit，而是它的 **Priority Pass** 權益。
+HSBC Elite World Mastercard 年費 $495，乍看不便宜，但它不是只靠單一福利撐場面。
 
-這張卡最有意思的地方在於：主卡可以用 Priority Pass，Authorized User（免費副卡）也有使用資格；每位 eligible cardholder 每次還能帶最多 2 位同伴。換句話說，這不是一張「只讓主卡本人進貴賓室」的卡，而是有機會用一張年費卡，幫全家搭出一套機場貴賓室通行方案。
+這張卡有三個我最重視的優勢：機票／飯店／租車 5x 點數、每年最高 $400 的 HSBC Travel Credit，以及真正讓我覺得有差異化的 **Priority Pass** 權益。
+
+其中 Priority Pass 是這張卡最有意思的地方：主卡可以用，Authorized User 免費副卡也有使用資格；每位 eligible cardholder 每次還能帶最多 2 位同伴。對常帶家人出國的人來說，這就不只是「一張高年費卡」，而是一套家庭旅行的機場通行方案。
 
 這篇拆給你看：Priority Pass 主卡＋副卡的價值怎麼算、$400 credit 值不值得換，順便提一下年費出帳後別急著繳、值得先問問客服有沒有 retention offer。
 
