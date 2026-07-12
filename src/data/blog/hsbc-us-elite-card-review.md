@@ -13,8 +13,6 @@ tags:
   - Priority Pass
 ---
 
-# 一張年費 $495 的美卡，變成全家人的 Priority Pass 通行證：HSBC US Elite 實測
-
 HSBC Elite World Mastercard，年費 $495，乍看不便宜。但我真正留下它的理由，不是單純的機票／飯店／租車 5x，也不只是每年最高 $400 的 HSBC Travel Credit，而是它的 **Priority Pass** 權益。
 
 這張卡最有意思的地方在於：主卡可以用 Priority Pass，Authorized User（免費副卡）也有使用資格；每位 eligible cardholder 每次還能帶最多 2 位同伴。換句話說，這不是一張「只讓主卡本人進貴賓室」的卡，而是有機會用一張年費卡，幫全家搭出一套機場貴賓室通行方案。
