@@ -16,8 +16,8 @@ export function verifyModerationToken(
   const expected = signModerationAction(id, action);
   if (!expected) return false;
 
-  const expectedBuf = Buffer.from(expected, "hex");
-  const providedBuf = Buffer.from(token, "hex");
+  const expectedBuf = Uint8Array.from(Buffer.from(expected, "hex"));
+  const providedBuf = Uint8Array.from(Buffer.from(token, "hex"));
   if (expectedBuf.length !== providedBuf.length) return false;
 
   return timingSafeEqual(expectedBuf, providedBuf);
