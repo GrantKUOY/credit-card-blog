@@ -1,7 +1,7 @@
 ---
-title: "美國卡的副卡也能免費進貴賓室？HSBC Elite 實測桃園東方宇逸（含 2 人免費、不用註冊）"
+title: "美國卡的副卡也能免費進貴賓室？HSBC Elite 實測TPE桃園國際機場二航廈（含 2 人免費、不用註冊）"
 description: "幫家人辦一張 $0 年費的 HSBC Elite 副卡，她自己就能免費進 Priority Pass 貴賓室——正副卡同卡號也行、不用事先註冊。桃園二航東方宇逸現場實測：服務單佐證、牛肉麵、台啤生啤、還有健身房。"
-pubDatetime: 2026-07-16
+pubDatetime: 2026-07-14
 slug: hsbc-elite-authorized-user-lounge-tpe
 featured: false
 tags:
@@ -14,7 +14,7 @@ tags:
   - 桃園機場
 ---
 
-# 美國卡的副卡也能免費進貴賓室？HSBC Elite 實測桃園東方宇逸（含 2 人免費、不用註冊）
+# 美國卡的副卡也能免費進貴賓室？HSBC Elite 實測TPE桃園國際機場二航廈（含 2 人免費、不用註冊）
 
 出發那天，我姐在長榮櫃檯傳訊息來：
 
